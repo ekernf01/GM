@@ -1,5 +1,8 @@
 # Gaussian Mirror for High-dimensional Controled Variable Selection
 
+This is a fork of the [GM R package for FDR-controlled variable selection](https://github.com/BioAlgs/GM) via the [Gaussian Mirror](https://arxiv.org/abs/1911.09761). Compared to the original package, this fork incorporates a speed-up discussed in the [Neural Gaussian Mirror sequel publication](https://arxiv.org/abs/2010.06175) where instead of performing D lasso regressions each with a single variable mirrored, we perform just one regression with all variables mirrored. Here, D is the number of features and a feature x is "mirrored" if it is replaced by x + cz, x - cz. The original README follows below. 
+
+---
 
 ## Installation
 ```R
