@@ -12,7 +12,7 @@ gm(
   ncores = 1,
   rep.boot = 100,
   var.est = FALSE,
-  do_simultaneous = TRUE
+  do_simultaneous = FALSE
 )
 }
 \arguments{
@@ -30,7 +30,7 @@ gm(
 
 \item{var.est}{logical flag for estimating the variance of FDR. The default value is FALSE.}
 
-\item{do_simultaneous}{Mirror all variables simultaneously?}
+\item{do_simultaneous}{If TRUE, compute all the mirror stats simultaneously as in alg 2 of the neural gaussian mirror paper.}
 
 \item{nlambda}{The number of lambda values. The default is 100.}
 }
