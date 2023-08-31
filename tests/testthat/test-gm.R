@@ -24,15 +24,18 @@ testthat::test_that("gm works", {
   # Fit the Gaussian mirror model
   library(parallel)
   fit = GM::gm(y, x, ncores=15, do_simultaneous = TRUE)
-  plot(fit$gm_statistics, beta, main = "do_simultaneous = TRUE")
+  plot(fit_fast$gm_statistics, beta, main = "do_simultaneous = TRUE")
   abline(v=0)
   fit_fast = GM::gm(y, x, ncores=15, do_simultaneous = FALSE)
-  plot(fit_fast$gm_statistics, beta, main = "do_simultaneous = FALSE")
+  plot(fit$gm_statistics, beta, main = "do_simultaneous = FALSE")
   abline(v=0)
   plot(fit$gm_statistics, fit_fast$gm_statistics, col = ifelse(beta!=0, "red", "black"), main = "Both")
 })
 
-
+testthat::test_that("do_simultaneous helps", {
+  microbenchmark::microbenchmark(GM::gm(y, x, ncores=15, do_simultaneous = TRUE), times = 1)
+  microbenchmark::microbenchmark(GM::gm(y, x, ncores=15, do_simultaneous = FALSE), times = 1)
+})
 
 
 
