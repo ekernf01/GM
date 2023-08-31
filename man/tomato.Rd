@@ -4,7 +4,9 @@
 \name{tomato}
 \alias{tomato}
 \title{GWAS data set with a panel of 292 tomato accessions}
-\format{each column corresponding a SNP}
+\format{
+each column corresponding a SNP
+}
 \usage{
 data(tommato)
 }

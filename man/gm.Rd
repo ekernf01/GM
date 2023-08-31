@@ -4,8 +4,16 @@
 \alias{gm}
 \title{Gaussian Mirrors for Controlled Variable Selection}
 \usage{
-gm(y, x, q = 0.1, family = "gaussian", ncores = 1, rep.boot = 100,
-  var.est = FALSE, nlambda = 100)
+gm(
+  y,
+  x,
+  q = 0.1,
+  family = "gaussian",
+  ncores = 1,
+  rep.boot = 100,
+  var.est = FALSE,
+  do_simultaneous = TRUE
+)
 }
 \arguments{
 \item{y}{response variable. Quantitative for family="gaussian", or family="poisson" (non-negative counts). For family="binomial" should be either a factor with two levels.}
@@ -21,6 +29,8 @@ gm(y, x, q = 0.1, family = "gaussian", ncores = 1, rep.boot = 100,
 \item{rep.boot}{the size of bootstrap sample for estimating the variance of FDR.}
 
 \item{var.est}{logical flag for estimating the variance of FDR. The default value is FALSE.}
+
+\item{do_simultaneous}{Mirror all variables simultaneously?}
 
 \item{nlambda}{The number of lambda values. The default is 100.}
 }
@@ -38,7 +48,7 @@ Gaussian Mirrors for Controlled Variable Selection
 \donttest{n <- 300  # Number of observations
 p <- 1000  # Number of predictors included in model
 q <- 60  # Number of true predictors
-amplitude = 20 # signal amplitude (for noise level = 1) 
+amplitude = 20 # signal amplitude (for noise level = 1)
 
 
 # Generate the variables from a multivariate normal distribution
